@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scooter Takip</title>
+  <meta charset="utf-8" />
+  <style>
+    body { background: #111; color: white; text-align: center; }
+    #map { height: 500px; width: 90%; margin: auto; }
+  </style>
+</head>
+<body>
+
+<h1>Scooter Takip Sistemi</h1>
+<div id="map"></div>
+
+<script>
+function initMap() {
+  var scooter = { lat: 36.27, lng: 36.56 };
+
+  var map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+    center: scooter,
+  });
+
+  var marker = new google.maps.Marker({
+    position: scooter,
+    map: map,
+    title: "Scooter"
+  });
+
+  var circle = new google.maps.Circle({
+    strokeColor: "#FF0000",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#FF0000",
+    fillOpacity: 0.2,
+    map,
+    center: scooter,
+    radius: 200
+  });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=API_KEY_BURAYA&callback=initMap" async defer></script>
+
+</body>
+</html>
